@@ -15,7 +15,8 @@ public class FinalProject {
     }
     String[] races = new String[]{"Paragon", "Angel", "Dragon-Born", "War-Forged", "Elf", "Orc", "Human"};
     String[] raceMessages = new String[]{"You are the pinnacle of all beings. A paragon.\n +3 to all stats", "You're an Angel. Have fun with the wings and getting hit on. \n +2 to all stats",
-            "You are a Dragon-Born ,slightly harder to kill and easier to kill others. \n +1 to str \n +1 to spd \n +3 to dur", "You are War-Forged, tankier and scarier but slow as hell. \n +2 to str \n -1 to spd \n +3 to dur"};
+            "You are a Dragon-Born ,slightly harder to kill and easier to kill others. \n +1 to str \n +1 to spd \n +3 to dur",
+            "You are War-Forged, tankier and scarier but slow as hell. \n +2 to str \n -1 to spd \n +3 to dur", };
 
     int health = 10;
     int damage = 3;
