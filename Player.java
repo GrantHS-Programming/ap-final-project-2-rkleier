@@ -5,7 +5,7 @@ public class Player {
 
     int health = 10;
 
-    int damage = 3;
+    int power = 3;
 
     int speed = 5;
 
@@ -13,25 +13,24 @@ public class Player {
         return health;
     }
 
-    public int getDamage() {
-        return damage;
-    }
+    public int getPower() {return power;}
     public int getSpeed() {
         return speed;
     }
     public void setSpeed(int newSpeed) {
-        this.speed = speed;
+        this.speed = newSpeed;
     }
 
-    public void setDamage(int newDamage) {
-        this.damage = damage;
+    public void setDamage(int newPower) {
+        this.power = newPower;
     }
 
     public void setHealth(int newHealth) {
-        this.health = health;
+        this.health = newHealth;
     }
 
     public Player (String race, String[] raceList){
+
         int intTracker = 0;
         for (int i = 0; i < 7; i++){
             if (race.equals(raceList[i])){
