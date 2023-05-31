@@ -7,21 +7,33 @@ public class Player {
 
     int power = 3;
 
-    int speed = 5;
 
     public int getHealth() {
         return health;
     }
 
     public int getPower() {return power;}
-    public int getSpeed() {
-        return speed;
+    public int getSpd() {
+        return spd;
     }
-    public void setSpeed(int newSpeed) {
-        this.speed = newSpeed;
+    public void setSpd(int newSpd) {
+        this.spd = newSpd;
     }
 
-    public void setDamage(int newPower) {
+    public int getStr() {
+        return str;
+    }
+
+    public int getDur() {
+        return dur;
+    }
+    public void setDur(int newDur) {
+        this.dur = newDur;
+    }
+    public void setStr(int newStr) {
+        this.str = newStr;
+    }
+    public void setPower(int newPower) {
         this.power = newPower;
     }
 
@@ -67,6 +79,8 @@ public class Player {
             dur +=1;
         }
     }
+
+
 
 
 
