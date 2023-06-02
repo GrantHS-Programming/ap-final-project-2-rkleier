@@ -7,12 +7,11 @@ import java.util.Scanner;
 
 public class FinalProject {
 
+    ArrayList<String> roomChoices = new ArrayList<String>();
+
     public static void main(String[] args) {
         Scanner myScanner = new Scanner(System.in);
         Player p1 = new Player(raceDecider(), races);
-        System.out.println(p1.getSpd());
-        System.out.println(p1.getStr());
-        System.out.println(p1.getDur());
         System.out.println("You now have the chance to choose a class. Not as drastic as a stat difference but you'll be able to do unique things.\n" +
                 "Would you like to be a:\n" +
                 "1) Rogue\n" +
@@ -21,12 +20,10 @@ public class FinalProject {
                 "(Type the corresponding number to the class)");
         String choice = myScanner.next();
         classDecider(choice, p1);
-        System.out.println(p1.getSpd());
-        System.out.println(p1.getStr());
-        System.out.println(p1.getDur());
-
+        statBlock(p1);
         System.out.println("Through either narcissistic delusions of grandeur, or some noble mission of saving someone dear, you have arrived at the foot of the the famed 'Dungeon of Oblivion' from which no one has ever escaped." +
-                "Despite this ");
+                "Despite this you have decided to ented in the hopes of claiming the probably fake ultimate prize of this dungeon: The Elixer of Life");
+
     }
     static String[] races = new String[]{"Paragon", "Angel", "Dragon-Born", "War-Forged", "Elf", "Orc", "Human"};
     static String[] raceMessages = new String[]{"You are the pinnacle of all beings. A paragon.\n+3 to all stats", "You're an Angel. Have fun with the wings and getting hit on. \n+2 to all stats",
@@ -38,8 +35,7 @@ public class FinalProject {
     static int health = 10;
     static int damage = 3;
     static int speed = 5;
-    static int numChoices;
-    static int numRooms;
+
     public static Player turn(Player dude){
 
 
@@ -50,7 +46,36 @@ public class FinalProject {
         return dude;
     }
 
+    public static void newRoom(Player p1){
+        int event = ((int)(Math.random()*4));
+        int numChoices = ((int)(Math.random()*5));
+        if (event==0){
+            System.out.println("You have walked into a trap room");
+            int type = ((int)(Math.random()*4));
+            if (type==0){
 
+            }
+            else if (type == 1){
+
+            }
+            else if (type==2){
+
+            }
+        }
+        else if (event==1){
+
+
+        }
+        else if (event==2){
+            p1.setDur(p1.getDur()+1);
+        }
+    }
+
+    public static void statBlock(Player p1){
+        System.out.println("Speed =" + p1.getSpd());
+        System.out.println("Strength =" + p1.getStr());
+        System.out.println("Durability +"+ p1.getDur());
+    }
 
     public static Player classDecider(String num, Player p1){
 
