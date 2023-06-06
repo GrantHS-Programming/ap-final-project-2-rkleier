@@ -23,7 +23,7 @@ public class FinalProject {
         statBlock(p1);
         System.out.println("Through either narcissistic delusions of grandeur, or some noble mission of saving someone dear, you have arrived at the foot of the the famed 'Dungeon of Oblivion' from which no one has ever escaped." +
                 "Despite this you have decided to ented in the hopes of claiming the probably fake ultimate prize of this dungeon: The Elixer of Life");
-
+        newRoom(p1);
     }
     static String[] races = new String[]{"Paragon", "Angel", "Dragon-Born", "War-Forged", "Elf", "Orc", "Human"};
     static String[] raceMessages = new String[]{"You are the pinnacle of all beings. A paragon.\n+3 to all stats", "You're an Angel. Have fun with the wings and getting hit on. \n+2 to all stats",
@@ -48,23 +48,50 @@ public class FinalProject {
 
     public static void newRoom(Player p1){
         int event = ((int)(Math.random()*4));
-        int numChoices = ((int)(Math.random()*5));
+        int type = ((int)(Math.random()*3));
         if (event==0){
-            System.out.println("You have walked into a trap room");
-            int type = ((int)(Math.random()*4));
+            String types[] = new String[]{"spike", "boulder", "flame"};
+            System.out.println("You have walked into a "+ types[type] + " trap room");
+            int difficulty = ((int)(95*Math.random()));
+            int chance =50;
             if (type==0){
-
+                chance += (10*p1.getSpd());
             }
             else if (type == 1){
-
+                chance += (10*p1.getStr());
             }
             else if (type==2){
-
+                chance += (10*p1.getDur());
+            }
+            System.out.println("Chance " +chance);
+            System.out.println("Diff " +difficulty);
+            if (difficulty<=chance){
+                System.out.println("You managed to escape the "+types[type]+" trap and walk away wary of the environment around you.");
+            }
+            else if (difficulty>chance){
+                System.out.println("You got hit by the "+types[type]+" trap and walk away worse for wear.");
+                p1.setHealth(p1.getHealth()-2);
+                System.out.println("Health = " + p1.getHealth());
             }
         }
         else if (event==1){
+            System.out.println("You encounter an enemy behind the door and prepare to fight.");
+            if (type==0){
+                System.out.println("You should be fine it's just a goblin");
+                int yikes = ((int)(2*Math.random()));
+                if (yikes==0){
+                    difficulty
+                }
+                else if (yikes == 1){
 
-
+                }
+            }
+            else if (type == 1){
+                chance += (10*p1.getStr());
+            }
+            else if (type==2){
+                chance += (10*p1.getDur());
+            }
         }
         else if (event==2){
             p1.setDur(p1.getDur()+1);
