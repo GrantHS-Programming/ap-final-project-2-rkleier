@@ -80,17 +80,17 @@ public class FinalProject {
                 System.out.println("You should be fine it's just a goblin");
                 int yikes = ((int)(2*Math.random()));
                 if (yikes==0){
-                    difficulty
+                    System.out.println();
                 }
                 else if (yikes == 1){
 
                 }
             }
             else if (type == 1){
-                chance += (10*p1.getStr());
+
             }
             else if (type==2){
-                chance += (10*p1.getDur());
+
             }
         }
         else if (event==2){
