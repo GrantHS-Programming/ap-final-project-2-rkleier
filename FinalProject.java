@@ -22,7 +22,7 @@ public class FinalProject {
         classDecider(choice, p1);
         statBlock(p1);
         System.out.println("Through either narcissistic delusions of grandeur, or some noble mission of saving someone dear, you have arrived at the foot of the the famed 'Dungeon of Oblivion' from which no one has ever escaped." +
-                "Despite this you have decided to ented in the hopes of claiming the probably fake ultimate prize of this dungeon: The Elixer of Life");
+                "Despite this you have decided to entered in the hopes of claiming the probably fake ultimate prize of this dungeon: The Elixer of Life");
         newRoom(p1);
     }
     static String[] races = new String[]{"Paragon", "Angel", "Dragon-Born", "War-Forged", "Elf", "Orc", "Human"};
@@ -54,6 +54,7 @@ public class FinalProject {
             System.out.println("You have walked into a "+ types[type] + " trap room");
             int difficulty = ((int)(95*Math.random()));
             int chance =50;
+            int chanceSave = chance;
             if (type==0){
                 chance += (10*p1.getSpd());
             }
@@ -76,21 +77,51 @@ public class FinalProject {
         }
         else if (event==1){
             System.out.println("You encounter an enemy behind the door and prepare to fight.");
+            int chance =((int)(Math.random()*90));
+            int difficulty = 0;
             if (type==0){
                 System.out.println("You should be fine it's just a goblin");
+                difficulty = 35;
                 int yikes = ((int)(2*Math.random()));
                 if (yikes==0){
-                    System.out.println();
+                    chance += (6*p1.getPower());
                 }
                 else if (yikes == 1){
+                    int ohNo = ((int)(Math.random()*5))+1;
+                    System.out.println("Oh shit it's actually "+ ohNo + " goblins!");
+                    chance += (6*p1.getPower());
+                    chance -= (7*ohNo);
 
                 }
             }
             else if (type == 1){
-
+                System.out.println("You are a little scared but excited for the challenge as you see a beholder waiting to fight you. (dont worry its not a busted one its just a floating eye with some force beams and teeth.)");
+                difficulty = 60;
             }
             else if (type==2){
+                difficulty=89;
+                System.out.println("Dear mother of christ its a balrog. You gotta go. Welp the door just slammed shut behind you so it's time to heroically get you shit pushed in.");
+            }
+            if (difficulty<=chance){
+                System.out.println("You managed to make it out alive and relatively unscathed. You have gained rewards proportional to the challenge.");
+                if (type==0){
+                    System.out.println("You healed one health");
+                    p1.setHealth(p1.getHealth()+1);
+                }
+                else if (type==1){
+                    System.out.println("You leave feeling stronger than before.");
+                    p1.setPower(p1.getPower()+1);
+                }
+                else if (type==2){
+                    System.out.println("You obtained the legendary balrog's whip. This should make it almost impossible to lose in future battles. You also feel reinvigorated.");
+                    p1.setPower(p1.getPower()+2);
+                    p1.setHealth(20);
+                }
 
+            }
+            else{
+                System.out.println("L. Suffer the consequences of being simply too shit.");
+                p1.setHealth(p1.getHealth()-5);
             }
         }
         else if (event==2){
